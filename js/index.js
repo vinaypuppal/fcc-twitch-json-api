@@ -5,7 +5,7 @@ var streamers = [
     'beyondthesummit', 'tsm_theoddone', 'Tsm_dyrus', 'esl_csgo', 'garenatw',
     'HiRezTV', 'smitegame', 'Nightblue3', 'nl_kripp', 'imaqtpie', 'esl_lol',
     'asiagodtonegg3be0', 'destructoid', 'sodapoppin', 'OGNGlobal', 'ongamenet',
-    'joindotared', 'faceittv', 'taketv', 'versuta', 'Voyboy',
+    'joindotared', 'faceittv', 'taketv', 'versuta','Voyboy',
     'wingsofdeath', 'towelliee', 'TrumpSC', 'leveluplive', 'twitch', 'itshafu',
     'dotastarladder_en', 'riotgamesturkish', 'twitchplayspokemon',
     'aces_tv', 'gamespot', 'sc2proleague', 'SirhcEz', 'totalbiscuit', 'mlgsc2',
@@ -14,7 +14,7 @@ var streamers = [
     'streamerhouse', 'dhingameclient', 'wcs_europe', 'sing_sing', 'roomonfire',
     'onemoregametv', 'dreamleague', 'syndicate', 'saintvicious', 'brunofin','comster404'
 ];
-  var streamUrl = 'https://api.twitch.tv/kraken/streams/';
+var streamUrl = 'https://api.twitch.tv/kraken/streams/';
 
   var streamRequests = streamers.map(function(item){
     return axios.get(streamUrl+item, {
