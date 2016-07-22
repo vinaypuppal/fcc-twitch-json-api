@@ -1,13 +1,13 @@
-$(document).ready(function(){ 
+$(document).ready(function(){
 var streamers = [
     'freecodecamp', 'storbeck', 'terakilobyte', 'beohoff', 'RobotCaleb',
     'thomasballinger', 'noobs2ninjas', 'habathcx', 'riotgames', 'starladder1',
     'beyondthesummit', 'tsm_theoddone', 'Tsm_dyrus', 'esl_csgo', 'garenatw',
     'HiRezTV', 'smitegame', 'Nightblue3', 'nl_kripp', 'imaqtpie', 'esl_lol',
     'asiagodtonegg3be0', 'destructoid', 'sodapoppin', 'OGNGlobal', 'ongamenet',
-    'joindotared', 'faceittv', 'taketv', 'versuta', 'PhantomL0rd', 'Voyboy',
+    'joindotared', 'faceittv', 'taketv', 'versuta', 'Voyboy',
     'wingsofdeath', 'towelliee', 'TrumpSC', 'leveluplive', 'twitch', 'itshafu',
-    'dotastarladder_en', 'riotgamesturkish', 'twitchplayspokemon', 'kingkongor',
+    'dotastarladder_en', 'riotgamesturkish', 'twitchplayspokemon',
     'aces_tv', 'gamespot', 'sc2proleague', 'SirhcEz', 'totalbiscuit', 'mlgsc2',
     'scarra', 'RocketBeansTV', 'lethalfrag', 'dendi', 'wcs_america', 'mlglol',
     'defrancogames', 'shadbasemurdertv', 'yogscast', 'Imt_wildturtle', 'magic',
@@ -15,7 +15,7 @@ var streamers = [
     'onemoregametv', 'dreamleague', 'syndicate', 'saintvicious', 'brunofin','comster404'
 ];
   var streamUrl = 'https://api.twitch.tv/kraken/streams/';
-  
+
   var streamRequests = streamers.map(function(item){
     return axios.get(streamUrl+item, {
   validateStatus: function (status) {
@@ -23,9 +23,9 @@ var streamers = [
   }
     });
   });
-  
+
   var userUrl = 'https://api.twitch.tv/kraken/users/';
-  
+
   var userRequests = streamers.map(function(item){
     return axios.get(userUrl+item);
   });
@@ -52,34 +52,34 @@ var streamers = [
       console.log(response.config);
     }
   });
- 
+
   function seperateData(streamResults,userResults){
     var unknownStreamResults = streamResults.filter(function(item){
       return item.status === 422;
     }).map(function(item){return item.data;});
     var unknownUsers = [userResults.pop().data,userResults.pop().data];
-    
+
     //console.log(unknownStreamResults,unknownUsers);
-    
+
     var knownStreamResults = streamResults.filter(function(item){
       return item.status === 200;
     });
-    
+
     var all = knownStreamResults.map(function(item){
       return item.data;
     });
-    
+
     var users = userResults.map(function(item){
       return item.data;
     });
-    
+
     var unknownStreamWithUsers = [];
     for(var i=0;i<unknownStreamResults.length;i++){
       var temp = unknownStreamResults[i];
       temp.user = unknownUsers[i];
       unknownStreamWithUsers.push(temp);
     }
-    
+
     var streamWithUsers = [];
     for(var i=0;i<all.length;i++){
       var temp = all[i];
@@ -124,7 +124,7 @@ var streamers = [
   function generateCard(data){
     var logo = data.user.logo ? data.user.logo : "https://placeholdit.imgix.net/~text?txtsize=14&txt=Logo&w=50&h=50";
     if(data.status === 422){
-     var state = "Account Closed";   
+     var state = "Account Closed";
     }else{
       var state = data.stream ? 'online' : 'offline';
     }
