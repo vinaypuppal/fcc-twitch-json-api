@@ -79,6 +79,25 @@ body header h1 {
 body header .filter {
   font-family: "Open Sans", sans-serif;
 }
+body header .filter input[type=radio] {
+  opacity: 0;
+}
+body header .filter input[type=radio]:checked + label {
+  background: #888;
+  color: #fff;
+  box-shadow: 1px 2px 8px #eee;
+}
+body header .filter label {
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #eee;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  box-shadow: 1px 2px 4px #eee;
+}
+body header .filter label:hover {
+  box-shadow: -1px 4px 8px #eee;
+}
 body ul {
   padding: 0;
   list-style: none;
