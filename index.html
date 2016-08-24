@@ -19,7 +19,7 @@
 	<meta name="twitter:title" content="My Works: Twitch JSON API">
 	<meta name="twitter:description" content="My Works: A FreeCodeCamp Twitch JSON API Project">
 	<meta name="twitter:image:src" content="https://res.cloudinary.com/vinaypuppal/image/upload/v1465247986/fcc/twitch-streams-ui.png">
-	
+
 	<!-- favicons -->
 	<link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png?v=7kkBEKw5XN">
 	<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png?v=7kkBEKw5XN">
@@ -53,8 +53,8 @@
 </head>
 <body>
 	<div class="loading">
-	  <h1>Using the Twitchtv JSON API</h1>  
-	  <div><i class="fa fa-spin fa-spinner"></i></div> 
+	  <h1>Using the Twitchtv JSON API</h1>
+	  <div><i class="fa fa-spin fa-spinner"></i></div>
 	    <p>Loading</p>
 	    <p class="info">Please Wait</p>
 	  </div>
@@ -62,16 +62,15 @@
 	  <header>
 	  <h1>Using the Twitchtv JSON API</h1>
 	  <p>Twitch Streams</p>
-	  <div class="filter">
-	    Show :
-	    <input type="radio" name='filter' checked value="online" /> <span id="online">Online</span>
-	    <input type="radio" name='filter' value="offline" /> <span id="offline">Offline</span>
-	    <input type="radio" value="all" name='filter' /> <span id="all">All</span>
-	    <input type="radio" value="unknown" name='filter' /> <span id="unknown">Unknown</span>
-	  </div>
+    <div class="filter">
+      <input id="online" type="radio" name='filter' checked value="online" /> <label for="online">Online</label>
+      <input id="offline" type="radio" name='filter' value="offline" /> <label for="offline">Offline</label>
+      <input id="all" type="radio" value="all" name='filter' /> <label for="all">All</label>
+      <input id="unknown" type="radio" value="unknown" name='filter' /> <label for='unknown'>Unknown</label>
+  </div>
 	</header>
 	<ul class='js-list'>
-	  
+
 	</ul>
 	<footer>
 	  <p>Made With <i class="fa fa-heart-o"> By VinayPuppal</i></p>
