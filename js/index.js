@@ -27,7 +27,11 @@ var streamUrl = 'https://api.twitch.tv/kraken/streams/';
   var userUrl = 'https://api.twitch.tv/kraken/users/';
 
   var userRequests = streamers.map(function(item){
-    return axios.get(userUrl+item);
+    return axios.get(userUrl+item,{
+  validateStatus: function (status) {
+    return status < 500; // Reject only if the status code is greater than or equal to 500
+  }
+    });
   });
   axios.all(streamRequests)
   .then(function(response){
